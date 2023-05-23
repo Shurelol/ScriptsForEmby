@@ -19,9 +19,9 @@
     // ExternalPlayers shown in macOS
     let players_macos = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in iOS
-    let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "dandanplay", "CopyUrl"];
+    let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
     // ExternalPlayers shown in Android
-    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "dandanplay", "CopyUrl"];
+    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "CopyUrl"];
     // ExternalPlayers shown in others
     let players_others = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "dandanplay", "CopyUrl"];
 
