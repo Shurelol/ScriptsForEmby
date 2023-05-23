@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    //Supports: Potplayer, VLC, IINA, NPlayer, MXPlayer, Infuse, StellarPlayer, MPV, CopyUrl
+    //Supports: Potplayer, VLC, IINA, NPlayer, MXPlayer, Infuse, StellarPlayer, MPV, dandanplay, CopyUrl
 
     // below playBtn: afterend; above playBtn: beforebegin
     let location = "afterend"
@@ -15,15 +15,15 @@
     let mxVersion = "ad"
 
     // ExternalPlayers shown in Windows
-    let players_windows = ["PotPlayer", "VLC", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_windows = ["PotPlayer", "VLC", "StellarPlayer", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in macOS
-    let players_macos = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
+    let players_macos = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in iOS
-    let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
+    let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in Android
-    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "CopyUrl"];
+    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in others
-    let players_others = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_others = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "dandanplay", "CopyUrl"];
 
     // ExternalPlayers Info
     let playersInfo = {
@@ -66,6 +66,11 @@
             name: "MPV",
             title: "MPV",
             icon: "https://fastly.jsdelivr.net/gh/bpking1/embyExternalUrl@0.0.5/embyWebAddExternalUrl/icons/icon-MPV.webp"
+        },
+        dandanplay: {
+            name: "弹弹play",
+            title: "弹弹play",
+            icon: "https://s1.ax1x.com/2023/05/23/p9TYka4.png"
         },
         CopyUrl: {
             name: "复制链接",
@@ -223,6 +228,12 @@
                         url = subUrl64 ? `mpv://play/${streamUrl64}/?subfile=${subUrl64}` : `mpv://play/${streamUrl64}`;
                         break;
                 }
+                break;
+            // dandanplay
+            case 'dandanplay':
+                let fullPath = document.querySelector(".mediaSources .mediaSource .sectionTitle").firstChild.innerText;
+                url = fullPath ? `${mediaInfo.streamUrl}|filePath=${fullPath}` : mediaInfo.streamUrl;
+                url = `ddplay:${encodeURI(url)}`
                 break;
             // CopyUrl
             case 'CopyUrl':
