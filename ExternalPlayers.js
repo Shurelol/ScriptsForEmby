@@ -15,13 +15,13 @@
     let mxVersion = "ad"
 
     // ExternalPlayers shown in Windows
-    let players_windows = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_windows = ["PotPlayer", "VLC", "StellarPlayer", "MPV", "CopyUrl"];
     // ExternalPlayers shown in macOS
-    let players_macos = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_macos = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
     // ExternalPlayers shown in iOS
-    let players_ios = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
     // ExternalPlayers shown in Android
-    let players_android = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
+    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "CopyUrl"];
     // ExternalPlayers shown in others
     let players_others = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "CopyUrl"];
 
@@ -170,9 +170,12 @@
                         // https://code.videolan.org/videolan/vlc-ios/-/commit/55e27ed69e2fce7d87c47c9342f8889fda356aa9
                         url = `vlc-x-callback://x-callback-url/stream?url=${encodeURIComponent(mediaInfo.streamUrl)}&sub=${encodeURIComponent(mediaInfo.subUrl)}`;
                         break;
-                    default:
+                    case 'Android':
                         // android subtitles:  https://code.videolan.org/videolan/vlc-android/-/issues/1903
-                        url = `intent:${encodeURI(mediaInfo.streamUrl)}#Intent;package=org.videolan.vlc;type=video/*;S.subtitles_location=${encodeURI(mediaInfo.subUrl)};S.title=${encodeURI(intent.title)};i.position=${intent.position};end`;
+                        url = getEnv() === "App" ? `vlc://${encodeURI(mediaInfo.streamUrl)}` : `intent:${encodeURI(mediaInfo.streamUrl)}#Intent;package=org.videolan.vlc;type=video/*;S.subtitles_location=${encodeURI(mediaInfo.subUrl)};S.title=${encodeURI(intent.title)};i.position=${intent.position};end`;
+                        break;
+                    default:
+                        url = `vlc://${encodeURI(mediaInfo.streamUrl)}`;
                         break;
                 }
                 break;
@@ -267,6 +270,15 @@
             return 'Ubuntu'
         } else {
             return 'others'
+        }
+    }
+
+    function getEnv() {
+        let u = navigator.userAgent;
+        if (u.match(/Version/i)) {
+            return "App";
+        } else {
+            return "Web";
         }
     }
 
