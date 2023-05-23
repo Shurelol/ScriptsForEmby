@@ -21,7 +21,7 @@
     // ExternalPlayers shown in iOS
     let players_ios = ["VLC", "IINA", "nPlayer", "Infuse", "MPV", "CopyUrl"];
     // ExternalPlayers shown in Android
-    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "CopyUrl"];
+    let players_android = ["VLC", "nPlayer", "MXPlayer", "MPV", "dandanplay", "CopyUrl"];
     // ExternalPlayers shown in others
     let players_others = ["PotPlayer", "VLC", "IINA", "nPlayer", "MXPlayer", "Infuse", "StellarPlayer", "MPV", "dandanplay", "CopyUrl"];
 
@@ -238,9 +238,16 @@
                 break;
             // dandanplay
             case 'dandanplay':
-                let fullPath = document.querySelector(".mediaSources .mediaSource .sectionTitle").firstChild.innerText;
-                url = fullPath ? `${mediaInfo.streamUrl}|filePath=${fullPath}` : mediaInfo.streamUrl;
-                url = `ddplay:${encodeURI(url)}`
+                switch (getOS()) {
+                    case 'Android':
+                        url = `intent:${encodeURI(mediaInfo.streamUrl)}#Intent;package=com.xyoye.dandanplay;S.title=${encodeURI(intent.title)};i.position=${intent.position};end`;
+                        break;
+                    default:
+                        let fullPath = document.querySelector(".mediaSources .mediaSource .sectionTitle").firstChild.innerText;
+                        url = fullPath ? `${mediaInfo.streamUrl}|filePath=${fullPath}` : mediaInfo.streamUrl;
+                        url = `ddplay:${encodeURI(url)}`
+                        break;
+                }
                 break;
             // CopyUrl
             case 'CopyUrl':
