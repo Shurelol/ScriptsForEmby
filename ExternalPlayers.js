@@ -81,11 +81,15 @@
 
     // main function
     setInterval(function () {
+        let mainDetailButtons = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons")[0];
+        if (!mainDetailButtons) {
+            return;
+        }
         let flag = showFlag();
         if (!flag) {
             return;
         }
-        let playBtn = getPlayBtn();
+
         let players;
         let btnHtml = '';
         switch (getOS()) {
@@ -119,7 +123,7 @@
                             </a>
                         </button>`;
         }
-        playBtn.insertAdjacentHTML(location, `<div class="detailButtons flex align-items-flex-start flex-wrap-wrap">${btnHtml}</div>`);
+        mainDetailButtons.insertAdjacentHTML(location, `<div class="detailButtons flex align-items-flex-start flex-wrap-wrap">${btnHtml}</div>`);
         // add href
         getUrls(players).then(urls=>{
             for (let player of players) {
@@ -127,10 +131,14 @@
             }
         }).catch(err=>{console.log(err)});
 
-    }, 1000);
+    }, 500);
 
     function showFlag() {
-        let mainDetailButtons = getPlayBtn();
+        // exclude already added
+        let externalPlayersButtons = document.getElementsByName("ExternalPlayers")[0];
+        if (externalPlayersButtons) {
+            return false;
+        }
         // exclude actor page
         let mainDetailButtons1 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnPlay:not(.hide)")[0];
         let mainDetailButtons2 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnResume:not(.hide)")[0];
@@ -138,9 +146,8 @@
         let mainDetailButtons3 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnShuffle:not(.hide)")[0];
         // exclude live tv page
         let mainDetailButtons4 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnManualRecording:not(.hide)")[0];
-        // exclude already added
-        let addedFlag = document.getElementsByName("ExternalPlayers")[0];
-        return mainDetailButtons && (mainDetailButtons1 || mainDetailButtons2) && (!mainDetailButtons3) && (!mainDetailButtons4) && (!addedFlag);
+
+        return (mainDetailButtons1 || mainDetailButtons2) && (!mainDetailButtons3) && (!mainDetailButtons4);
     }
 
     async function getUrls(players) {
@@ -261,10 +268,6 @@
                 break;
         }
         return url;
-    }
-
-    function getPlayBtn() {
-        return document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons")[0];
     }
 
     function getOS() {
