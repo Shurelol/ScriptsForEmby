@@ -104,26 +104,24 @@
         for (let player of players) {
             let name = playersInfo[player].name;
             let title = playersInfo[player].title;
-            btnHtml += `<button name="ExternalPlayers" type="button" class="detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary btn-${player}" title="${title}">
+            let icon = playersInfo[player].icon;
+            btnHtml += `<button id="btn-${player}" name="ExternalPlayers" type="button" class="detailButton emby-button emby-button-backdropfilter raised-backdropfilter detailButton-primary" title="${title}">
+                            <a id="a-${player}" is="emby-linkbutton" class="button-link emby-button emby-button-backdropfilter">
                             <div class="detailButton-content"> 
-                                <img class="md-icon detailButton-icon button-icon button-icon-left icon-${player}" alt="" src="" style="width: ${iconSize}; height: ${iconSize}">
+                                <img class="md-icon detailButton-icon button-icon button-icon-left" alt="" src=${icon} style="width: ${iconSize}; height: ${iconSize}">
                                 <span class="button-text">${name}</span>
                             </div> 
+                            </a>
                         </button>`;
         }
         playBtn.insertAdjacentHTML(location, `<div class="detailButtons flex align-items-flex-start flex-wrap-wrap">${btnHtml}</div>`);
-        // add img and click event
-        for (let player of players) {
-            document.querySelector(`div[is='emby-scroller']:not(.hide) .icon-${player}`).src = playersInfo[player].icon;
-            document.querySelector(`div[is='emby-scroller']:not(.hide) .btn-${player}`).addEventListener("click", function () {
-                getUrl(player).then(url=>{
-                    if (url) {
-                        console.log(url);
-                        window.open(url, '_blank');
-                    }
-                }).catch(err=>{console.log(err)});
-            });
-        }
+        // add href
+        getUrls(players).then(urls=>{
+            for (let player of players) {
+                document.querySelector(`div[is='emby-scroller']:not(.hide) #a-${player}`).href = urls[player];
+            }
+        }).catch(err=>{console.log(err)});
+
     }, 1000);
 
     function showFlag() {
@@ -140,8 +138,19 @@
         return mainDetailButtons && (mainDetailButtons1 || mainDetailButtons2) && (!mainDetailButtons3) && (!mainDetailButtons4) && (!addedFlag);
     }
 
-    async function getUrl(player) {
+    async function getUrls(players) {
         let mediaInfo = await getEmbyMediaInfo();
+        let urls = {};
+        for (let player of players) {
+            let url = getUrl(mediaInfo, player);
+            if (url) {
+                urls[player] = url;
+            }
+        }
+        return urls;
+    }
+
+    function getUrl(mediaInfo, player) {
         let intent = mediaInfo.intent;
         let url;
         switch (player) {
@@ -214,23 +223,25 @@
                 break;
             // CopyUrl
             case 'CopyUrl':
-                let textarea = document.createElement('textarea');
-                document.body.appendChild(textarea);
-                textarea.style.position = 'absolute';
-                textarea.style.clip = 'rect(0 0 0 0)';
-                textarea.value = mediaInfo.streamUrl;
-                textarea.select();
-                if (document.execCommand('copy', true)) {
-                    console.log(`copyUrl = ${mediaInfo.streamUrl}`);
-                    alert('复制成功');
-                }
-                //need https
-                // if (navigator.clipboard) {
-                //     navigator.clipboard.writeText(mediaInfo.streamUrl).then(() => {
-                //          console.log(`copyUrl = ${mediaInfo.streamUrl}`);
-                //          this.innerText = '复制成功';
-                //     })
-                // }
+                document.querySelector(`div[is='emby-scroller']:not(.hide) #btn-${player}`).onclick =  (function () {
+                    let textarea = document.createElement('textarea');
+                    document.body.appendChild(textarea);
+                    textarea.style.position = 'absolute';
+                    textarea.style.clip = 'rect(0 0 0 0)';
+                    textarea.value = mediaInfo.streamUrl;
+                    textarea.select();
+                    if (document.execCommand('copy', true)) {
+                        console.log(`copyUrl = ${mediaInfo.streamUrl}`);
+                        this.innerText = '复制成功';
+                    }
+                    //need https
+                    // if (navigator.clipboard) {
+                    //     navigator.clipboard.writeText(mediaInfo.streamUrl).then(() => {
+                    //          console.log(`copyUrl = ${mediaInfo.streamUrl}`);
+                    //          this.innerText = '复制成功';
+                    //     })
+                    // }
+                });
                 break;
             default:
                 break;
