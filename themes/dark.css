@@ -8,7 +8,7 @@ html {
 }
 :not(.layout-tv):root {
     --theme-background: !important;
-    --header-blur-background: rgba(20,20,20,0.66)!important;
+    --header-blur-background: rgba(20,20,20,0.66)!important;skinHeader-withfulldrawer
     --drawer-background: #2C2C2E!important;
     --docked-drawer-background: rgba(0, 0, 0, 0.25)!important;
     --dialog-header-background: #2b323c!important;
@@ -257,7 +257,6 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 @media (min-width: 80em){ .backdropContainer-withfulldrawer, .skinBody-withFullDrawer .page { left: 0!important; } }
 
 .skinHeader-withfulldrawer {
-    padding: 1em 1em 1em 1em!important;
     margin: 0 auto;
     backdrop-filter: none!important;
     background: #00000010!important;
@@ -265,9 +264,6 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 }
 
 @media (min-width: 50em){
-    .skinHeader-withfulldrawer {
-        padding: 1em 5em 1em 10em!important;
-    }
     .homeSectionsContainer h2.sectionTitle-cards {
         /*font-size: 1em;*/
         /*font-weight: 100;*/
