@@ -272,8 +272,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 /*      font-family: Open Sans Semibold,Helvetica Neue,Helvetica,Arial,sans-serif;*/
     }
 
-    .skinHeader-withfulldrawer .headerTop-withSectionTabs { padding-bottom: 1.2em; }
-    .skinHeader-withfulldrawer .headerMiddle { top: 15px; }
+    .skinHeader-withfulldrawer { top: 15px; }
     .backdropContainer-withfulldrawer, .skinBody-withFullDrawer { left: 0!important; }
     .skinBody-withFullDrawer .withTabs.page, .skinBody-withFullDrawer .page { padding-left: 0%!important; }
     .mainDrawer.drawer-docked { width: 5.5em; padding: 1em 1.1em 1em; transition: 0.2s; transition-delay: 0.5s; z-index: 999!important; -webkit-backdrop-filter: saturate(1.5) blur(4em); backdrop-filter: saturate(1.5) blur(4em); }
