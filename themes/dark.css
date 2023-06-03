@@ -8,7 +8,7 @@ html {
 }
 :not(.layout-tv):root {
     --theme-background: !important;
-    --header-blur-background: rgba(20,20,20,0.66)!important;skinHeader-withfulldrawer
+    --header-blur-background: rgba(20,20,20,0.66)!important;
     --drawer-background: #2C2C2E!important;
     --docked-drawer-background: rgba(0, 0, 0, 0.25)!important;
     --dialog-header-background: #2b323c!important;
@@ -93,7 +93,7 @@ div.details-additionalContent {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-  
+
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -149,14 +149,14 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
     right: 0;
 }*/
 
-    
+
 /* Loading animation (newly added content) */
 .withTabs.page .portraitCard .cardImageContainer i.cardImageIcon.md-icon {
   margin: 0 auto;
   box-sizing: border-box;
   width: 70px;
   height: 70px;
-  border-radius: 100%;  
+  border-radius: 100%;
   animation: rotate 1s linear infinite;
   border: 2px solid transparent;
   border-top: 5px solid #2195f3;
@@ -198,10 +198,10 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 /* Settings: Dashboard */
 .dashboardSection .listItemImageContainer-square {
     height: auto;
-} 
+}
 
-    
-    
+
+
 
 /* Mini video/audio player */
 /*.appfooter {
@@ -212,7 +212,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 
 
 
-/* Settings pages */ 
+/* Settings pages */
 @media (min-width: 48em) { .skinBody-withFullDrawer .padded-left-page.settingsContainer { padding-left: 4%; } }
 
 
@@ -238,17 +238,17 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 .mainDrawer.focuscontainer-y.scrollY.hiddenScrollY-hover.scrollY-mini.drawer-open {
     background: rgb(24 29 35 / 95%)!important;
 }
-    
 
-    
-@media (min-width: 40em){ 
-   .skinBody-withFullDrawer .page-windowScroll.withTabs, .skinBody-withFullDrawer .withTabs .padded-top-page { padding-top: calc(6em + (var(--window-inset-top) * .7))!important;} 
+
+
+@media (min-width: 40em){
+   .skinBody-withFullDrawer .page-windowScroll.withTabs, .skinBody-withFullDrawer .withTabs .padded-top-page { padding-top: calc(6em + (var(--window-inset-top) * .7))!important;}
 }
-    
-    
 
-    
-    
+
+
+
+
 @media (min-width: 50em){
     div.itemBackgroundContainer.withBackdrop, .backgroundContainer.withBackdrop {
         background:linear-gradient(77deg ,rgb(75 75 75 / 81%) 0,rgb(0 0 0 / 55%) 50%,rgb(0 0 0 / 25%) 100%)!important;
@@ -272,7 +272,6 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 /*      font-family: Open Sans Semibold,Helvetica Neue,Helvetica,Arial,sans-serif;*/
     }
 
-    .skinHeader-withfulldrawer { top: 15px; }
     .backdropContainer-withfulldrawer, .skinBody-withFullDrawer { left: 0!important; }
     .skinBody-withFullDrawer .withTabs.page, .skinBody-withFullDrawer .page { padding-left: 0%!important; }
     .mainDrawer.drawer-docked { width: 5.5em; padding: 1em 1.1em 1em; transition: 0.2s; transition-delay: 0.5s; z-index: 999!important; -webkit-backdrop-filter: saturate(1.5) blur(4em); backdrop-filter: saturate(1.5) blur(4em); }
@@ -305,7 +304,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
         padding-right: 0!important;
     }
 }
-    
+
 /*.headerLeft .pageTitleWithDefaultLogo { display: none!important; }*/
 .skinHeader .headerLeft, .skinHeader .headerRight { width: auto!important; z-index: 9; }
 .skinHeader .headerLeft { padding-left: 0!important; }
@@ -328,12 +327,12 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
     background-color: rgb(0 0 0 / 20%)!important;
 }
 
-@media (min-width: 115em){ 
+@media (min-width: 115em){
     .focuscontainer.dialog.dialog-fixedSize.dialog-fullscreen-border.formDialog.opened .portraitCard, .focuscontainer.dialog.dialog-fixedSize.dialog-fullscreen-border.formDialog.opened .squareCard { width: 20%; }
 }
 
 
-@media (min-width: 80em){ 
+@media (min-width: 80em){
     .skinBody-withFullDrawer .padded-right { padding-right: 10rem!important; }
     .skinBody-withFullDrawer .withTabs.page, .skinBody-withFullDrawer .page { padding-left: 10rem!important; }
     /*
@@ -342,13 +341,13 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
     .scrollSlider.flex-grow.flex-direction-column.padded-left.padded-left-page.padded-right.padded-top-page.padded-bottom-page.settingsContainer.scrollSliderY,
     .scrollSlider.flex-grow.padded-top-page.itemMainScrollSlider.scrollSliderY,
     .view.flex.flex-direction-row.flex-grow.align-items-flex-start.metadataEditorPage.page,
-    .scrollSlider.flex-grow.flex-direction-column.padded-left.padded-left-page.padded-right.padded-top-page.padded-bottom-page.dashboardContainer.scrollSliderY { 
-    padding-left: 10rem!important; 
+    .scrollSlider.flex-grow.flex-direction-column.padded-left.padded-left-page.padded-right.padded-top-page.padded-bottom-page.dashboardContainer.scrollSliderY {
+    padding-left: 10rem!important;
     }
     */
 }
 @media (min-width: 80em){ .skinBody-withFullDrawer .padded-left { padding-left: 0!important; } }
-    
+
 .scrollbuttoncontainer { background: transparent!important; }
 .cardScalable.cardPadder-portrait, .cardScalable.cardPadder-backdrop, .cardScalable.cardPadder-square {
     box-shadow: 0 0 10px rgb(0 0 0 / 20%);
@@ -407,7 +406,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 .detailButtons .btnPlaystate[data-played="false"] i.playstatebutton-icon {
     color: #fff!important;
 }
-.detailButtons .btnPlaystate[data-played="true"] i.playstatebutton-icon, 
+.detailButtons .btnPlaystate[data-played="true"] i.playstatebutton-icon,
 .detailButtons .btnPlaystate[data-played="false"] i.playstatebutton-icon:not(.playstatebutton-icon-played):hover,
 .detailButtons .btnPlaystate[data-played="false"]:hover i.playstatebutton-icon:not(.playstatebutton-icon-played)
  {
@@ -423,9 +422,9 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 .listViewUserDataButton.playstatebutton-icon {
     color: #fff!important;
 }
-.listViewUserDataButton.playstatebutton-icon:hover, 
-.listViewUserDataButton.playstatebutton-icon:not(.playstatebutton-icon-played):hover, 
-.listViewUserDataButton.playstatebutton-icon.playstatebutton-icon-played, 
+.listViewUserDataButton.playstatebutton-icon:hover,
+.listViewUserDataButton.playstatebutton-icon:not(.playstatebutton-icon-played):hover,
+.listViewUserDataButton.playstatebutton-icon.playstatebutton-icon-played,
 .listViewUserDataButton.playstatebutton-icon {
     color: #fff!important;
     background: transparent!important;
@@ -512,7 +511,7 @@ div.peopleSection .coveredImage {
     font-size: 100%!important;
 }
 
-.details-additionalContent-withbackdrop .verticalSection.itemNextUpSection, 
+.details-additionalContent-withbackdrop .verticalSection.itemNextUpSection,
 .details-additionalContent-withbackdrop .verticalSection.itemNextUpSection .cardText-first {
     text-align: left!important;
 }
@@ -545,8 +544,8 @@ button.itemAction.cardContent-button.cardContent.cardImageContainer.cardContent-
 div.verticalSection.itemNextUpSection { order: 2;}
 div.verticalSection.childrenSection { order: 1;}
 div.verticalSection.peopleSection {order: 3;}
-div.verticalSection.appearsOnListsSection {order: 5;} 
-div.verticalSection.similarSection {order: 4;} 
+div.verticalSection.appearsOnListsSection {order: 5;}
+div.verticalSection.similarSection {order: 4;}
 div.verticalSection.tagsSection{order: 9;}
 div.verticalSection.linksSection{order: 9;}
 div.verticalSection.audioVideoMediaInfo{order: 9;}
@@ -580,7 +579,7 @@ div.verticalSection.itemNextUpSection, div.verticalSection.moreFromSeasonSection
     width: 90%!important;
     height: auto!important;
 }
-.verticalSection.childrenSection .card.portraitCard.card-hoverable.focusable, 
+.verticalSection.childrenSection .card.portraitCard.card-hoverable.focusable,
 .verticalSection.childrenSection .card.squareCard.card-hoverable.focusable {
     float: left;
 }
@@ -808,26 +807,26 @@ i.cardIndicator.cardPlayedIndicator.playedIndicator.md-icon {
     background: radial-gradient(farthest-corner at 50% 50%,rgba(30,30,30,.5) 50%,#2c2c2c 100%)!important;
 }
 
-.cardOverlayContainer .cardOverlayFab-primary, 
-.cardOverlayContainer .chkCardSelectContainer 
+.cardOverlayContainer .cardOverlayFab-primary,
+.cardOverlayContainer .chkCardSelectContainer
  {
     opacity:0%;
 }
-.cardOverlayContainer.itemAction:hover .cardOverlayFab-primary, 
-.cardOverlayContainer.itemAction:hover .chkCardSelectContainer 
+.cardOverlayContainer.itemAction:hover .cardOverlayFab-primary,
+.cardOverlayContainer.itemAction:hover .chkCardSelectContainer
 {
     opacity:100%;
 }
-.cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="emby-playstatebutton"], 
-.cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"], 
+.cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="emby-playstatebutton"],
+.cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"],
 .cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="emby-ratingbutton"]
  {
     color: transparent!important;
     background: transparent!important;
     border-color: transparent!important;
 }
-.cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="emby-playstatebutton"], 
-.cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"], 
+.cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="emby-playstatebutton"],
+.cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"],
 .cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="emby-ratingbutton"]
 {
     color: #fff!important;
@@ -909,7 +908,7 @@ i.listItemIndicator.listItemPlayedIndicator.playedIndicator.md-icon { display: n
 
 
 
-/* Live TV */ 
+/* Live TV */
 @media (orientation: landscape) and (min-width: 60em){
     .guideContainer { padding-left: 0!important; }
 }
