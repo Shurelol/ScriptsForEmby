@@ -30,8 +30,8 @@ html {
     -webkit-flex-shrink: inherit!important;
     flex-shrink: inherit!important;
     -webkit-box-flex: inherit!important;
-    -webkit-flex-grow: inherit!important;
-    flex-grow: inherit!important;
+    /*-webkit-flex-grow: inherit!important;*/
+    /*flex-grow: inherit!important;*/
 }
 }
 .skinHeader .headerLeft {
@@ -315,8 +315,8 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
         -webkit-flex-shrink: inherit!important;
         flex-shrink: inherit!important;
         -webkit-box-flex: inherit!important;
-        -webkit-flex-grow: inherit!important;
-        flex-grow: inherit!important;
+        /*-webkit-flex-grow: inherit!important;*/
+        /*flex-grow: inherit!important;*/
     }
 }
 
