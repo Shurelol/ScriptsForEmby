@@ -1012,3 +1012,6 @@ img.recordingDialog-img {
 img.cardImage.coveredImage {
     object-fit: contain!important;
 }
+img.cardImage.coveredImage.coveredImage-noScale {
+    object-fit: cover!important;
+}
