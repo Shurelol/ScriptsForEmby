@@ -34,9 +34,9 @@ html {
     /*flex-grow: inherit!important;*/
 }
 }
-.skinHeader .headerLeft {
-    padding-left: 0!important;
-}
+/*.skinHeader .headerLeft {*/
+/*    padding-left: 0!important;*/
+/*}*/
 /*.headerLeft .pageTitleWithDefaultLogo {
     display: none;
 }*/
@@ -307,7 +307,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 
 /*.headerLeft .pageTitleWithDefaultLogo { display: none!important; }*/
 .skinHeader .headerLeft, .skinHeader .headerRight { width: auto!important; z-index: 9; }
-.skinHeader .headerLeft { padding-left: 0!important; }
+/*.skinHeader .headerLeft { padding-left: 0!important; }*/
 /*.skinHeader .headerMiddle { display: contents!important; }*/
 .tabs-viewmenubar.emby-tabs { margin-left: 20px; }
 @media (min-width: 120em) {
