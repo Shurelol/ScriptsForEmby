@@ -499,17 +499,17 @@ div.peopleSection .coveredImage {
 .cardText-secondary { opacity: 0.7; }
 .cardTextCentered { text-align: center!important; }
 
-.detailLogo {
-    background-size: contain!important;
-    width: 100%!important;
-    height: 18em!important;
-    bottom: unset!important;
-    max-width: 70%;
-    left: 0;
-    right: 0;
-    background-position: top center!important;
-    font-size: 100%!important;
-}
+/*.detailLogo {*/
+/*    background-size: contain!important;*/
+/*    width: 100%!important;*/
+/*    height: 18em!important;*/
+/*    bottom: unset!important;*/
+/*    max-width: 70%;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    background-position: top center!important;*/
+/*    font-size: 100%!important;*/
+/*}*/
 
 .details-additionalContent-withbackdrop .verticalSection.itemNextUpSection,
 .details-additionalContent-withbackdrop .verticalSection.itemNextUpSection .cardText-first {
@@ -1010,5 +1010,5 @@ img.recordingDialog-img {
     left: 9%;
 }
 img.cardImage.coveredImage {
-    object-fit: cover!important;
+    object-fit: contain!important;
 }
