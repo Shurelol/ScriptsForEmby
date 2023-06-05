@@ -7,7 +7,7 @@ html {
     background: #2c3035!important;
 }
 :not(.layout-tv):root {
-    --theme-background: !important;
+    --theme-background: unset!important;
     --header-blur-background: rgba(20,20,20,0.66)!important;
     --drawer-background: #2C2C2E!important;
     --docked-drawer-background: rgba(0, 0, 0, 0.25)!important;
@@ -34,9 +34,9 @@ html {
     /*flex-grow: inherit!important;*/
 }
 }
-/*.skinHeader .headerLeft {*/
-/*    padding-left: 0!important;*/
-/*}*/
+.skinHeader .headerLeft {
+    padding-left: 0!important;
+}
 /*.headerLeft .pageTitleWithDefaultLogo {
     display: none;
 }*/
@@ -258,16 +258,16 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 
 .skinHeader-withfulldrawer {
     /*padding: 1em 1em 1em 1em!important;*/
-    /*margin: 0 auto;*/
+    margin: 0 auto;
     backdrop-filter: none!important;
     background: #00000010!important;
     border-bottom: 0.08em solid rgba(255, 255, 255, .08);
 }
 
 @media (min-width: 50em){
-    /*.skinHeader-withfulldrawer {*/
-    /*    padding: 1em 5em 1em 10em!important;*/
-    /*}*/
+    .skinHeader-withfulldrawer {
+        padding: 1em 5em 1em 10em!important;
+    }
     .homeSectionsContainer h2.sectionTitle-cards {
         /*font-size: 1em;*/
         /*font-weight: 100;*/
@@ -313,7 +313,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 
 /*.headerLeft .pageTitleWithDefaultLogo { display: none!important; }*/
 .skinHeader .headerLeft, .skinHeader .headerRight { width: auto!important; z-index: 9; }
-/*.skinHeader .headerLeft { padding-left: 0!important; }*/
+.skinHeader .headerLeft { padding-left: 0!important; }
 /*.skinHeader .headerMiddle { display: contents!important; }*/
 .tabs-viewmenubar.emby-tabs { margin-left: 20px; }
 @media (min-width: 120em) {
@@ -953,9 +953,9 @@ img.recordingDialog-img {
         display: none;
     }
 }*/
-.headerRight.focuscontainer-right {
-    flex: auto;
-}
+/*.headerRight.focuscontainer-right {*/
+/*    flex: auto;*/
+/*}*/
 .listItemBodyText-nowrap {
     white-space: normal!important;
 }
