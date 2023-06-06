@@ -389,11 +389,11 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
     width: 100%;
     margin-top: 10px;
 }
-.btnPlaystate .playstatebutton-icon {
-    font-size: 0.8em;
-    padding: 2px;
-    border-width: 0.2em;
-}
+/*.btnPlaystate .playstatebutton-icon {*/
+/*    font-size: 0.8em;*/
+/*    padding: 2px;*/
+/*    border-width: 0.2em;*/
+/*}*/
 .detailImageContainer-main.detailImageContainer-portrait { max-width: 260px; } /* Media poster */
 
 @media (min-width: 50em){ .itemPrimaryNameContainer-logo { margin-bottom: 1em!important; } }
@@ -416,9 +416,10 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 .detailButtons .btnPlaystate[data-played="false"] i.playstatebutton-icon:not(.playstatebutton-icon-played):hover,
 .detailButtons .btnPlaystate[data-played="false"]:hover i.playstatebutton-icon:not(.playstatebutton-icon-played)
  {
-    background: #fff!important;
-    border-color: #fff!important;
-    color: #333!important;
+    /*background: #fff!important;*/
+    background: transparent!important;
+    /*border-color: #fff!important;*/
+    /*color: #333!important;*/
 }
 @media (min-width: 50em){
     .detailButtons .btnPlaystate[data-played="true"] {
@@ -827,17 +828,19 @@ i.cardIndicator.cardPlayedIndicator.playedIndicator.md-icon {
 .cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"],
 .cardOverlayContainer .cardOverlayButton-br .cardOverlayButton[is="emby-ratingbutton"]
  {
-    color: transparent!important;
-    background: transparent!important;
-    border-color: transparent!important;
+    /*color: transparent!important;*/
+    /*background: transparent!important;*/
+    /*border-color: transparent!important;*/
+    display: none!important;
 }
 .cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="emby-playstatebutton"],
 .cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="paper-icon-button-light"],
 .cardOverlayContainer.itemAction:hover .cardOverlayButton-br .cardOverlayButton[is="emby-ratingbutton"]
 {
-    color: #fff!important;
+    /*color: #fff!important;*/
     background: none!important;
-    border-color: none!important;
+    /*border-color: none!important;*/
+    display: block!important;
 }
 
 
