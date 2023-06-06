@@ -395,7 +395,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 /*    padding: 2px;*/
 /*    border-width: 0.2em;*/
 /*}*/
-.detailImageContainer-main.detailImageContainer-portrait { max-width: 260px; } /* Media poster */
+/*.detailImageContainer-main.detailImageContainer-portrait { max-width: 260px; } !* Media poster *!*/
 
 @media (min-width: 50em){ .itemPrimaryNameContainer-logo { margin-bottom: 1em!important; } }
 .itemName-primary-logo { height: 3em!important; }
