@@ -426,16 +426,16 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
     background: rgb(32 149 243 / 80%)!important;
 }
 }
-.listViewUserDataButton.playstatebutton-icon {
-    color: #fff!important;
-}
+/*.listViewUserDataButton.playstatebutton-icon {*/
+/*    color: #fff!important;*/
+/*}*/
 .listViewUserDataButton.playstatebutton-icon:hover,
 .listViewUserDataButton.playstatebutton-icon:not(.playstatebutton-icon-played):hover,
 .listViewUserDataButton.playstatebutton-icon.playstatebutton-icon-played,
 .listViewUserDataButton.playstatebutton-icon {
-    color: #fff!important;
+    /*color: #fff!important;*/
     background: transparent!important;
-    border-color: transparent!important;
+    /*border-color: transparent!important;*/
 }
 .ratingbutton-icon-withrating {
     color: #2195f3!important;
