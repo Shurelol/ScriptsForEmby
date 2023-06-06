@@ -266,7 +266,7 @@ a:not(.emby-button), .cardText.cardTextCentered.cardText-first > button {
 
 @media (min-width: 50em){
     .skinHeader-withfulldrawer {
-        padding: 1em 5em 1em 10em!important;
+        padding: 1em 1em 1em 8.5em!important;
     }
     .homeSectionsContainer h2.sectionTitle-cards {
         /*font-size: 1em;*/
