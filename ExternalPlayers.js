@@ -80,16 +80,12 @@
     }
 
     // main function
-    setInterval(function () {
-        let mainDetailButtons = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons")[0];
-        if (!mainDetailButtons) {
-            return;
+    function init() {
+        let playBtns = document.getElementById("ExternalPlayersBtns");
+        if (playBtns) {
+            playBtns.remove();
         }
-        let flag = showFlag();
-        if (!flag) {
-            return;
-        }
-
+        let mainDetailButtons = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons");
         let players;
         let btnHtml = '';
         switch (getOS()) {
@@ -123,31 +119,26 @@
                             </a>
                         </button>`;
         }
-        mainDetailButtons.insertAdjacentHTML(location, `<div class="detailButtons flex align-items-flex-start flex-wrap-wrap">${btnHtml}</div>`);
+        mainDetailButtons.insertAdjacentHTML(location, `<div id="ExternalPlayersBtns" class="detailButtons flex align-items-flex-start flex-wrap-wrap">${btnHtml}</div>`);
         // add href
         getUrls(players).then(urls=>{
             for (let player of players) {
                 document.querySelector(`div[is='emby-scroller']:not(.hide) #a-${player}`).href = urls[player];
             }
         }).catch(err=>{console.log(err)});
-
-    }, 500);
+    }
 
     function showFlag() {
-        // exclude already added
-        let externalPlayersButtons = document.getElementsByName("ExternalPlayers")[0];
-        if (externalPlayersButtons) {
-            return false;
-        }
+        let mainDetailButtons = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons");
         // exclude actor page
-        let mainDetailButtons1 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnPlay:not(.hide)")[0];
-        let mainDetailButtons2 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnResume:not(.hide)")[0];
+        let mainDetailButton1 = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnPlay:not(.hide)");
+        let mainDetailButton2 = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnResume:not(.hide)");
         // exclude collection page
-        let mainDetailButtons3 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnShuffle:not(.hide)")[0];
+        let mainDetailButton3 = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnShuffle:not(.hide)");
         // exclude live tv page
-        let mainDetailButtons4 = document.querySelectorAll("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnManualRecording:not(.hide)")[0];
+        let mainDetailButton4 = document.querySelector("div[is='emby-scroller']:not(.hide) .mainDetailButtons .btnManualRecording:not(.hide)");
 
-        return (mainDetailButtons1 || mainDetailButtons2) && (!mainDetailButtons3) && (!mainDetailButtons4);
+        return mainDetailButtons && (mainDetailButton1 || mainDetailButton2) && (!mainDetailButton3) && (!mainDetailButton4);
     }
 
     async function getUrls(players) {
@@ -413,5 +404,22 @@
             subs_enable: subs_enable
         };
     }
+
+    // monitor dom changements
+    document.addEventListener("viewbeforeshow", function (e) {
+        if (e.detail.contextPath.startsWith("/item?id=") ) {
+            const mutation = new MutationObserver(function() {
+                if (showFlag()) {
+                    init()
+                    mutation.disconnect();
+                }
+            })
+            mutation.observe(document.body, {
+                childList: true,
+                characterData: true,
+                subtree: true,
+            })
+        }
+    });
 
 })();
