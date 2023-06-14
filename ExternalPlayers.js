@@ -410,7 +410,7 @@
         if (e.detail.contextPath.startsWith("/item?id=") ) {
             const mutation = new MutationObserver(function() {
                 if (showFlag()) {
-                    init()
+                    init();
                     mutation.disconnect();
                 }
             })
